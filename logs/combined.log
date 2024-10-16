@@ -623,3 +623,4 @@
 {"level":"info","message":"Server is running on port 8000","service":"user-service","timestamp":"2024-10-16 19:01:09"}
 {"level":"info","message":"Server is running on port 59897","service":"user-service","timestamp":"2024-10-16 19:23:21"}
 {"level":"info","message":"Server is running on port 8000","service":"user-service","timestamp":"2024-10-16 20:03:19"}
+{"level":"info","message":"Server is running on port 8000","service":"user-service","timestamp":"2024-10-16 20:19:20"}
