@@ -1,0 +1,60 @@
+name: Deploy to Server
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "20"
+
+      - name: Cache yarn dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            **/node_modules
+            ~/.yarn/cache
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Install dependencies
+        run: |
+          cd backend
+          yarn install
+
+      - name: Build project
+        run: |
+          cd backend
+          yarn build-bundle
+
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.7.0
+        with:
+          ssh-private-key: ${{ secrets.SSH }}
+
+      - name: Add server to known hosts
+        run: |
+          ssh-keyscan -H vaqif1xv.beget.tech >> ~/.ssh/known_hosts
+
+      - name: Copy build folder to server
+        run: |
+          scp -r backend/dist/* vaqif1xv@vaqif1xv.beget.tech:bprof.vaqif1xv.beget.tech/public_html
+
+      - name: Execute server-side commands
+        run: |
+          ssh vaqif1xv@vaqif1xv.beget.tech <<-EOF
+          cd /bprof.vaqif1xv.beget.tech/public_html
+          touch tmp/restart.txt
+          exit
+          EOF
