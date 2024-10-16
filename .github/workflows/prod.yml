@@ -30,7 +30,6 @@ jobs:
 
       - name: Install dependencies
         run: |
-          cd backend
           yarn install
 
       - name: Build project
