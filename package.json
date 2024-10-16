@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "build": "ncc build ./app.js -o dist --minify",
     "start": "node app.js",
     "dev": "nodemon app.js",
     "migrate": "sequelize db:migrate",
@@ -19,6 +20,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@vercel/ncc": "^0.38.2",
     "bcrypt": "^5.1.1",
     "chai": "^5.1.1",
     "cors": "^2.8.5",
