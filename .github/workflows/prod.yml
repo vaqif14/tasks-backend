@@ -35,8 +35,7 @@ jobs:
 
       - name: Build project
         run: |
-          cd backend
-          yarn build-bundle
+          yarn build
 
       - name: Set up SSH
         uses: webfactory/ssh-agent@v0.7.0
