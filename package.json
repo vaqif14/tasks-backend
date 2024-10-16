@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "ncc build ./app.js -o dist",
-    "start": "node app.js",
-    "dev": "nodemon app.js",
+    "build": "ncc build ./index.js -o dist",
+    "start": "node index.js",
+    "dev": "nodemon index.js",
     "migrate": "sequelize db:migrate",
     "migrate:undo": "sequelize db:migrate:undo",
     "migrate:undo:all": "sequelize db:migrate:undo:all",
