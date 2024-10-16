@@ -1,0 +1,36 @@
+{
+  "name": "virtual-front-desk-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "migrate": "sequelize db:migrate",
+    "migrate:undo": "sequelize db:migrate:undo",
+    "migrate:undo:all": "sequelize db:migrate:undo:all",
+    "seed": "sequelize db:seed:all",
+    "seed:undo": "sequelize db:seed:undo:all",
+    "lint": "eslint . --ext .js",
+    "test": "mocha --timeout 5000 --exit",
+    "test:watch": "nodemon --exec 'npm test' --watch 'test/**/*.js'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "chai": "^5.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "eslint": "^9.12.0",
+    "express": "^4.21.1",
+    "jsonwebtoken": "^9.0.2",
+    "mocha": "^10.7.3",
+    "mysql2": "^3.11.3",
+    "nodemon": "^3.1.7",
+    "sequelize": "^6.37.4",
+    "sequelize-cli": "^6.6.2",
+    "winston": "^3.15.0"
+  }
+}
