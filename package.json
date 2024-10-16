@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "build": "ncc build ./app.js -o dist",
     "start": "node app.js",
     "dev": "nodemon app.js",
     "migrate": "sequelize db:migrate",
